@@ -81,14 +81,14 @@ func (tirc *TwitchIRC) Write(msg interface{}) (*core.Message, error) {
 	return nil, nil
 }
 
-func (tirc *TwitchIRC) Delete() error {
-	_, err := tirc.Write(fmt.Sprintf("/delete %s", tirc.ID))
-	return err
-}
+// func (tirc *TwitchIRC) Delete() error {
+// 	_, err := tirc.Write(fmt.Sprintf("/delete %s", tirc.ID))
+// 	return err
+// }
 
-func (tirc *TwitchIRC) Edit(msg interface{}) (*core.Message, error) {
-	return nil, fmt.Errorf("editing not supported for twitch irc")
-}
+// func (tirc *TwitchIRC) Edit(msg interface{}) (*core.Message, error) {
+// 	return nil, fmt.Errorf("editing not supported for twitch irc")
+// }
 
 func onPrivateMessage(m twitchIRC.PrivateMessage) {
 	tirc := &TwitchIRC{twitchIrcClient, &m}
