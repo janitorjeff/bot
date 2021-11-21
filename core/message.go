@@ -39,16 +39,16 @@ func (m *Message) Write(msg interface{}) (*Message, error) {
 	return m.Client.Write(msg)
 }
 
-// Edits a message
-// returned *Message could be nil depending on the platform
-func (m *Message) Edit(msg interface{}) (*Message, error) {
-	return m.Client.Edit(msg)
-}
+// // Edits a message
+// // returned *Message could be nil depending on the platform
+// func (m *Message) Edit(msg interface{}) (*Message, error) {
+// 	return m.Client.Edit(msg)
+// }
 
-// Deletes a message
-func (m *Message) Delete() error {
-	return m.Client.Delete()
-}
+// // Deletes a message
+// func (m *Message) Delete() error {
+// 	return m.Client.Delete()
+// }
 
 // Finds, executes and sends a command
 func (m *Message) CommandRun() (*Message, error) {

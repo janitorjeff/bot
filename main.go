@@ -7,6 +7,7 @@ import (
 	"os"
 
 	"github.com/janitorjeff/bot/twitch"
+	"github.com/janitorjeff/bot/discord"
 
 	"github.com/joho/godotenv"
 )
@@ -26,10 +27,16 @@ func main() {
 	}
 
 	twitchOauth := readEnvVar("JEFF_TWITCH_OAUTH")
+	discordToken := readEnvVar("JEFF_DISCORD_TOKEN")
 
 	channels := []string{"janitorjeff"}
 	log.Println("Connecting to Twitch IRC")
 	go twitch.IRCInit("JanitorJeff", twitchOauth, channels)
+
+	log.Println("Connecting to Discord")
+	if err := discord.Init(discordToken); err != nil {
+		log.Fatalf("failed to connect to discord: %v\n", err)
+	}
 
 	log.Println("Bot is now running. Press CTRL-C to exit.")
 	sc := make(chan os.Signal, 1)

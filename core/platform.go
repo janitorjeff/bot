@@ -8,6 +8,6 @@ const (
 type Platform interface {
 	Parse() *Message
 	Write(interface{}) (*Message, error)
-	Edit(interface{}) (*Message, error)
-	Delete() error
+	// Edit(interface{}) (*Message, error)
+	// Delete() error
 }
